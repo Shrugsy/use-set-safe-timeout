@@ -1,6 +1,6 @@
 {
   "name": "use-set-safe-timeout",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "React hook that provides a version of `window.setTimeout` which clears itself on unmount",
   "main": "dist/index.js",
   "source": "src/index.ts",
