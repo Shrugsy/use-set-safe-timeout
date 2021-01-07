@@ -1,5 +1,7 @@
 import { useRef, useEffect, useCallback } from "react";
 
+export type CancelTimeout = () => void;
+
 /**
  * Returns a callback that acts as a 'safe' version of window.setTimeout which clears itself on unmount
  */
@@ -27,7 +29,7 @@ function useSetSafeTimeout() {
       callback: () => void,
       milliseconds: number | undefined,
       ...args: unknown[]
-    ) => {
+    ): CancelTimeout => {
       const timeoutId = window.setTimeout(callback, milliseconds, ...args);
       timeoutIds.current.push(timeoutId);
       return () => window.clearTimeout(timeoutId);
